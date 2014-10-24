@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-icons/core-icons.html">
 <link rel="import" href="../../bower_components/core-icons/social-icons.html">
+<link rel="import" href="../../bower_components/core-icons/image-icons.html">
+<link rel="import" href="../../bower_components/core-icons/communication-icons.html">
 <link rel="import" href="../../bower_components/core-image/core-image.html">
 
 <polymer-element name="gplus-list" layout vertical>
@@ -38,6 +40,19 @@
               <core-image style="width:{{model.imageWidth}}; height:{{model.imageHeight}};" sizing="cover" preload src="{{model.imageSrc}}"></core-image>
             </div>
 
+            <div class="controls" layout horizontal>
+              <div class="icon-button">
+                <core-icon icon="image:exposure-plus-1"></core-icon>
+              </div>
+              <div class="icon-button">
+                <core-icon icon="reply"></core-icon>
+              </div>
+              <span flex></span>
+              <div class="icon-button">
+                <core-icon icon="communication:messenger"></core-icon>
+              </div>
+            </div>
+
           </swipeable-card>
         </div>
       </template>
@@ -56,9 +71,8 @@
           post.name = Faker.Name.findName();
           post.avatar = Faker.Image.avatar();
           post.body = capitalize(Faker.Lorem.paragraph());
-          // Give 75% of posts images
           // This is ugly...
-          if (Math.ceil(Math.random() * 100) > 25) {
+          if (Math.ceil(Math.random() * 100) > 35) {
             var image = randomImg();
             post.hasImage = true;
             post.imageSrc = image.src;
