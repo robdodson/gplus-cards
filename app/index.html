@@ -21,8 +21,36 @@
   <!-- endbuild-->
 </head>
 
-<body fit>
-  <gplus-list></gplus-list>
+<body unresolved fullbleed>
+  <template is="auto-binding">
+    <core-scaffold>
+      <core-header-panel navigation flex mode="seamed">
+        <core-toolbar>robdodson@google.com</core-toolbar>
+        <core-menu theme="core-light-theme">
+          <core-item icon="settings" label="item1"></core-item>
+          <core-item icon="settings" label="item2"></core-item>
+        </core-menu>
+      </core-header-panel>
+      <div tool>
+        <span flex>All circles</span>
+        <core-icon icon="social:people" on-tap="{{showPeople}}"></core-icon>
+      </div>
+      <core-animated-pages fit layout vertical
+                           selected="{{selected}}"
+                           transitions="slide-from-right">
+          <!-- Gotta include the core-selected class, otherwise
+          core-animated-pages will display:none the children and screw up
+          the list's ability to calculate its height -->
+          <section fit class="core-selected">
+            <gplus-list></gplus-list>
+          </section>
+          <section>
+            <div>Hello World</div>
+          </section>
+      </core-animated-pages>
+      <paper-fab icon="create"></paper-fab>
+    </core-scaffold>
+  </template>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>

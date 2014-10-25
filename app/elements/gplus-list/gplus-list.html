@@ -1,4 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../../bower_components/swipeable-card/swipeable-card.html">
 <link rel="import" href="../../bower_components/core-icons/core-icons.html">
 <link rel="import" href="../../bower_components/core-icons/social-icons.html">
 <link rel="import" href="../../bower_components/core-icons/image-icons.html">
@@ -12,8 +14,6 @@
                on-swipeable-card-swipe-away="{{deleteCard}}">
       <template>
         <div class="item">
-          <!-- Can we delegate this event listener...? -->
-          <!-- Why does the event fire twice? -->
           <swipeable-card class="card" swiped="{{model.swiped}}">
 
             <div class="info" layout horizontal center>
